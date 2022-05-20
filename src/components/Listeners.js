@@ -1,7 +1,7 @@
-import { handleScroll, handleThemeBtn } from "./listeners/index"
+import { handleScroll } from "./listeners/index"
 const Listeners = () => {
   handleScroll()
-  handleThemeBtn()
+  // handleThemeBtn()
   return ""
 }
 

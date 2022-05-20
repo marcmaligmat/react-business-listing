@@ -1,6 +1,35 @@
-import React from "react"
+import { useEffect } from "react"
 
 const ThemeBtn = () => {
+  const handleThemeBtn = () => {
+    const toggleButton = document.querySelector(".theme-toggle-btn")
+
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark")
+      toggleButton.checked = true
+    } else {
+      document.documentElement.classList.remove("dark")
+      toggleButton.checked = false
+    }
+
+    document
+      .querySelector(".theme-toggle-btn")
+      .addEventListener("change", (e) => {
+        console.log("changed ")
+        toggleTheme(e.target.checked)
+      })
+    function toggleTheme(dark = true) {
+      document.documentElement.classList.replace(
+        ...(dark ? ["light", "dark"] : ["dark", "light"])
+      )
+      localStorage.theme = dark ? "dark" : "light"
+    }
+  }
+  useEffect(handleThemeBtn)
   return (
     <div class="pl-1 lg:pl-10">
       <label class="switch relative block w-[4rem] h-9">

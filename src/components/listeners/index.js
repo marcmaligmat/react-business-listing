@@ -1,31 +1,31 @@
-export const handleThemeBtn = () => {
-  const toggleButton = document.querySelector(".theme-toggle-btn")
-  // theme
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
-    document.documentElement.classList.add("dark")
-    toggleButton.checked = true
-  } else {
-    document.documentElement.classList.remove("dark")
-    toggleButton.checked = false
-  }
+// export const handleThemeBtn = () => {
+//   const toggleButton = document.querySelector(".theme-toggle-btn")
+//   // theme
+//   if (
+//     localStorage.theme === "dark" ||
+//     (!("theme" in localStorage) &&
+//       window.matchMedia("(prefers-color-scheme: dark)").matches)
+//   ) {
+//     document.documentElement.classList.add("dark")
+//     toggleButton.checked = true
+//   } else {
+//     document.documentElement.classList.remove("dark")
+//     toggleButton.checked = false
+//   }
 
-  document
-    .querySelector(".theme-toggle-btn")
-    .addEventListener("change", (e) => {
-      console.log("changed ")
-      toggleTheme(e.target.checked)
-    })
-  function toggleTheme(dark = true) {
-    document.documentElement.classList.replace(
-      ...(dark ? ["light", "dark"] : ["dark", "light"])
-    )
-    localStorage.theme = dark ? "dark" : "light"
-  }
-}
+//   document
+//     .querySelector(".theme-toggle-btn")
+//     .addEventListener("change", (e) => {
+//       console.log("changed ")
+//       toggleTheme(e.target.checked)
+//     })
+//   function toggleTheme(dark = true) {
+//     document.documentElement.classList.replace(
+//       ...(dark ? ["light", "dark"] : ["dark", "light"])
+//     )
+//     localStorage.theme = dark ? "dark" : "light"
+//   }
+// }
 
 export const handleScroll = () =>
   window.addEventListener("scroll", () => {
